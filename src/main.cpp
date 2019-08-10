@@ -24,7 +24,7 @@ void getAdjacentes(){
     //registro das adjacências da matriz de adjacência
     for(int i=0; i < getNumVertices(numv); i++){
       for(int j=0; j < getNumVertices(numv); j++){
-        std::cout << "Adjacência(0:não|1:sim):";
+        std::cout << "Adjacência(v" << i << "v" << j << ")(0:não|1:sim):";
         std::cin >> nv[i][j];
       }
     }
