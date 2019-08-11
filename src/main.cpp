@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 //pedir o número (quantidade) de vértices (texto)
 void requestNumVertices(){
@@ -40,7 +41,23 @@ void getAdjacentes(){
       std::cout << "]";
       std::cout << std::endl;
     }
-    
+
+    //inserindo a matriz de adjacência em um arquivo(matriz_adjacência)
+    std::ofstream matrizAdjFILE;
+    matrizAdjFILE.open("matriz_adjacência.txt", std::ios::app);
+    for(int i=0; i < getNumVertices(numv); i++){
+      matrizAdjFILE << "[";
+      for(int j=0; j < getNumVertices(numv); j++){
+        matrizAdjFILE << " ";
+        matrizAdjFILE << nv[i][j];
+        matrizAdjFILE << " ";
+      }
+      matrizAdjFILE << "]";
+      matrizAdjFILE << std::endl;
+    }
+    matrizAdjFILE << "-----" << std::endl;
+    matrizAdjFILE.close();
+
     //método ehCompleto e ehRegular
     bool ehCompleto=true;
     for(int i=0; i < getNumVertices(numv); i++) {
