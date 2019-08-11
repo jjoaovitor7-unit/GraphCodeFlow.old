@@ -40,6 +40,27 @@ void getAdjacentes(){
       std::cout << "]";
       std::cout << std::endl;
     }
+    
+    //método ehCompleto e ehRegular
+    bool ehCompleto=true;
+    for(int i=0; i < getNumVertices(numv); i++) {
+      for(int j=0; j < getNumVertices(numv); j++){
+        if(nv[i][j] == 0){
+          ehCompleto=false;
+          break;
+        }
+        else if(nv[i][j] == 1){
+          ehCompleto=true;
+        }
+      }
+    }
+
+    if(ehCompleto==true){
+      std::cout << "O grafo é completo, ou seja, também é regular =)" << std::endl;
+    }
+    else if(ehCompleto==false){
+      std::cout << "O grafo não é completo =(" << std::endl;
+    }
 
 }
 
