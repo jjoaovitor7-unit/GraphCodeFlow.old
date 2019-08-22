@@ -70,10 +70,6 @@ void getAdjacentes(){
           ehCompleto=true;
         }
       }
-    
-    char ehConexo;
-    std::cout << "Conexo(S/N):";
-    std::cin >> ehConexo;
     }
 
     if(ehCompleto==true){
@@ -83,6 +79,10 @@ void getAdjacentes(){
       std::cout << "O grafo não é completo =(" << std::endl;
     }
 
+    //método ehConexo
+    char ehConexo;
+    std::cout << "Conexo(S/N):";
+    std::cin >> ehConexo;
 }
 
 int main(){
