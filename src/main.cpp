@@ -6,23 +6,22 @@ void requestNumVertices(){
     std::cout << "Número de Vértices:";
 }
 
-//pegar o número (quantidade) de vértices
+//retorna o número (quantidade) de vértices
 int getNumVertices(int numv){
     return numv;
 }
 
 //fazer a matriz de adjacência
 void getAdjacentes(){
-    //pedir o número (quantidade) de vértices (texto)
     requestNumVertices();
 
+    //pegar o número (quantidade) de vértices e colocar na variável numv
     int numv;
-    //pegar o número (quantidade) de vértices
     std::cin >> numv;
     getNumVertices(numv);
 
-    int nv[numv][numv];
     //registro das adjacências da matriz de adjacência
+    int nv[numv][numv];
     for(int i=0; i < getNumVertices(numv); i++){
       for(int j=0; j < getNumVertices(numv); j++){
         std::cout << "Adjacência(v" << i << "v" << j << ")(0:não|1:sim):";
@@ -38,11 +37,10 @@ void getAdjacentes(){
         std::cout << nv[i][j];
         std::cout << " ";
       }
-      std::cout << "]";
-      std::cout << std::endl;
+      std::cout << "]" << std::endl;
     }
 
-    //inserindo a matriz de adjacência em um arquivo(matriz_adjacência)
+    //inserindo a matriz de adjacência em um arquivo(matriz_adjacência.txt)
     std::ofstream matrizAdjFILE;
     matrizAdjFILE.open("matriz_adjacência.txt", std::ios::app);
     for(int i=0; i < getNumVertices(numv); i++){
