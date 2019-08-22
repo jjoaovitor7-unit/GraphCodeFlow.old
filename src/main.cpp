@@ -70,6 +70,10 @@ void getAdjacentes(){
           ehCompleto=true;
         }
       }
+    
+    char ehConexo;
+    std::cout << "Conexo(S/N):";
+    std::cin >> ehConexo;
     }
 
     if(ehCompleto==true){
