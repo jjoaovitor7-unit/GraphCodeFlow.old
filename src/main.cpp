@@ -1,4 +1,5 @@
 #include <iostream>
+//#include <clocale>
 #include <fstream>
 
 //pedir o número (quantidade) de vértices (texto)
@@ -11,8 +12,9 @@ int getNumVertices(int numv){
     return numv;
 }
 
-//fazer a matriz de adjacência
+//método getAdjacentes
 void getAdjacentes(){
+    //std::setlocale(LC_ALL, "Portuguese");
     requestNumVertices();
 
     //pegar o número (quantidade) de vértices e colocar na variável numv
@@ -67,11 +69,16 @@ void getAdjacentes(){
         else if(nv[i][j] == 1){
           ehCompleto=true;
         }
+        else{
+          std::cout << "Algo está errado!" << std::endl;
+          break;
+        }
       }
     }
 
     if(ehCompleto==true){
-      std::cout << "O grafo é completo, ou seja, também é regular =)" << std::endl;
+      std::cout << "O grafo é completo, ou seja, também é regular =)"
+                << std::endl;
     }
     else if(ehCompleto==false){
       std::cout << "O grafo não é completo =(" << std::endl;
