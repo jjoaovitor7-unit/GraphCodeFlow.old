@@ -2,10 +2,7 @@
 //#include <clocale>
 #include <fstream>
 
-//pedir o número (quantidade) de vértices (texto)
-void requestNumVertices(){
-    std::cout << "Número de Vértices:";
-}
+#include "requestNumVertices.h"
 
 //retorna o número (quantidade) de vértices
 int getNumVertices(int numv){
