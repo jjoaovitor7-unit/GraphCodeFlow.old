@@ -3,11 +3,7 @@
 #include <fstream>
 
 #include "requestNumVertices.h"
-
-//retorna o número (quantidade) de vértices
-int getNumVertices(int numv){
-    return numv;
-}
+#include "getNumVertices.h"
 
 //método getAdjacentes
 void getAdjacentes(){
