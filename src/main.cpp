@@ -81,6 +81,22 @@ void getAdjacentes(){
     char ehConexo;
     std::cout << "Conexo(S/N):";
     std::cin >> ehConexo;
+    
+    std::queue<int> fila;
+    for(int i=0; i < getNumVertices(numv); i++){
+      for(int j=0; j < getNumVertices(numv); j++){
+        fila.push(nv[i][j]);
+      }
+    }
+
+    while(!fila.empty()){
+      std::cout << " " << fila.front();
+      fila.pop();
+    }
+    std::cout << std::endl;
+    if(fila.empty()){
+      std::cout << "A fila está vazia!" << std::endl;
+    }
 }
 
 int main(){
