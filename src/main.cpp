@@ -1,6 +1,7 @@
 #include <iostream>
 //#include <clocale>
 #include <fstream>
+#include <queue>
 
 #include "requestNumVertices.h"
 #include "getNumVertices.h"
