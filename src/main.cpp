@@ -3,8 +3,7 @@
 #include <fstream>
 #include <queue>
 
-#include "requestNumVertices.h"
-#include "getNumVertices.h"
+#include "vertices.h"
 
 //método getAdjacentes
 void getAdjacentes(){
