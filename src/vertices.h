@@ -6,9 +6,13 @@ void requestNumVertices(){
     std::cout << "Número de Vértices:";
 }
 
+int numv=0;
+void setNumVertices(){
+    std::cin >> numv;
+}
 
 //retorna o número (quantidade) de vértices
-int getNumVertices(int numv){
+int getNumVertices(){
     return numv;
 }
 
