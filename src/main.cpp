@@ -11,12 +11,12 @@ void getAdjacentes(){
     requestNumVertices();
     setNumVertices();
 
-    //registro das adjacências da matriz de adjacência
-    int nv[numv][numv];
+    //registro das adjacências na matriz mAdj
+    int mAdj[getNumVertices()][getNumVertices()]={};
     for(int i=0; i < getNumVertices(); i++){
       for(int j=0; j < getNumVertices(); j++){
         std::cout << "Adjacência(v" << i << "v" << j << ")(0:não|1:sim):";
-        std::cin >> nv[i][j];
+        std::cin >> mAdj[i][j];
       }
     }
 
@@ -25,37 +25,37 @@ void getAdjacentes(){
       std::cout << "[";
       for(int j=0; j < getNumVertices(); j++){
         std::cout << " ";
-        std::cout << nv[i][j];
+        std::cout << mAdj[i][j];
         std::cout << " ";
       }
       std::cout << "]" << std::endl;
     }
 
-    //inserindo a matriz de adjacência em um arquivo(matriz_adjacência.txt)
-    std::ofstream matrizAdjFILE;
-    matrizAdjFILE.open("matriz_adjacência.txt", std::ios::app);
+    //inserindo a matriz de adjacência no arquivo matriz_adjacência.txt
+    std::ofstream mAdjFILE;
+    mAdjFILE.open("matriz_adjacência.txt", std::ios::app);
     for(int i=0; i < getNumVertices(); i++){
-      matrizAdjFILE << "[";
+      mAdjFILE << "[";
       for(int j=0; j < getNumVertices(); j++){
-        matrizAdjFILE << " ";
-        matrizAdjFILE << nv[i][j];
-        matrizAdjFILE << " ";
+        mAdjFILE << " ";
+        mAdjFILE << mAdj[i][j];
+        mAdjFILE << " ";
       }
-      matrizAdjFILE << "]";
-      matrizAdjFILE << std::endl;
+      mAdjFILE << "]";
+      mAdjFILE << std::endl;
     }
-    matrizAdjFILE << "-----" << std::endl;
-    matrizAdjFILE.close();
+    mAdjFILE << "-----" << std::endl;
+    mAdjFILE.close();
 
     //método ehCompleto e ehRegular
     bool ehCompleto=true;
     for(int i=0; i < getNumVertices(); i++) {
       for(int j=0; j < getNumVertices(); j++){
-        if(nv[i][j] == 0){
+        if(mAdj[i][j]==0){
           ehCompleto=false;
           break;
         }
-        else if(nv[i][j] == 1){
+        else if(mAdj[i][j]==1){
           ehCompleto=true;
         }
         else{
@@ -78,21 +78,42 @@ void getAdjacentes(){
     std::cout << "Conexo(S/N):";
     std::cin >> ehConexo;
 
+    if(ehConexo=='S' || ehConexo=='s'){
+      std::cout << "O grafo é conexo!" << std::endl;
+    }
+    else if(ehConexo=='N' || ehConexo=='n'){
+      std::cout << "O grafo não é conexo!" << std::endl;
+    }
+    else{
+      std::cout << "Apenas é aceito \'S\' ou \'N\'" << std::endl;
+    }
+
     std::queue<int> fila;
+    bool adjVisitada[getNumVertices()][getNumVertices()]={};
+    //visitando as adjacências da matriz mAdj e adicionado-as na matriz
+    //adjVisitada
     for(int i=0; i < getNumVertices(); i++){
       for(int j=0; j < getNumVertices(); j++){
-        fila.push(nv[i][j]);
+        std::cout << "Visitando Adjacência[" << i << " " << j << "]"
+        << std::endl;
+        fila.push(mAdj[i][j]);
+        adjVisitada[i][j]=true;
       }
     }
 
-    while(!fila.empty()){
-      std::cout << " " << fila.front();
-      fila.pop();
-    }
-    std::cout << std::endl;
-    //se a fila estiver vazia
-    if(fila.empty()){
-      std::cout << "A fila está vazia!" << std::endl;
+    //retirando elemento da fila (realizando a busca)
+    for(int i=getNumVertices(); i>=0; i--){
+      for(int j=getNumVertices(); j>=0; j--){
+        if(adjVisitada[i][j]==true && fila.empty()==false){
+          std::cout << "Retirando elemento " << fila.front() << " da fila."
+          << std::endl;
+          fila.pop();
+        }
+        else if(fila.empty()==true){
+          std::cout << "A fila está vazia!" << std::endl;
+          break;
+        }
+      }
     }
 }
 
