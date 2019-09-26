@@ -105,7 +105,7 @@ void getAdjacentes(){
     for(int i=getNumVertices(); i>=0; i--){
       for(int j=getNumVertices(); j>=0; j--){
         if(adjVisitada[i][j]==true && fila.empty()==false){
-          std::cout << "Retirando elemento " << fila.front() << " da fila."
+          std::cout << "Retirando elemento " << fila.back() << " da fila."
           << std::endl;
           fila.pop();
         }
