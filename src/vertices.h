@@ -1,19 +1,16 @@
 #ifndef VERTICES_H
 #define VERTICES_H
 
-//pedir o número (quantidade) de vértices (texto)
-void requestNumVertices(){
-    std::cout << "Número de Vértices:";
-}
-
-int numv=0;
+int numVertices=0;
+//seta o número de vértices
 void setNumVertices(){
-    std::cin >> numv;
+    std::cout << "Número de Vértices:";
+    std::cin >> numVertices;
 }
 
-//retorna o número (quantidade) de vértices
+//retorn o número de vértices
 int getNumVertices(){
-    return numv;
+    return numVertices;
 }
 
 #endif
