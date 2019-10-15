@@ -8,7 +8,7 @@ void setNumVertices(){
     std::cin >> numVertices;
 }
 
-//retorn o número de vértices
+//retorna o número de vértices
 int getNumVertices(){
     return numVertices;
 }
